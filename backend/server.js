@@ -13,8 +13,18 @@ import authRoutes from "./routes/auth.routes.js";
 // Import a custom function to connect to the MongoDB database
 import connectMongoDB from "./db/connectMongoDB.js";
 
+import userRoutes from "./routes/user.routes.js"
 // Load environment variables from the .env file into process.env
+
+import {v2 as cloudinary} from "cloudinary";
+
 dotenv.config();
+
+cloudinary.config({
+   cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
+   api_key:process.env.CLOUDINARY_API_KEY,
+   api_secret:process.env.CLOUDINARY_API_SECRET,
+})
 
 // Create an instance of the Express application
 const app = express();
@@ -33,6 +43,7 @@ app.use(cookieParser());
 
 // Register the authentication routes under the path "/api/auth"
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 // Start the Express server and listen on the specified port
 app.listen(PORT, () => {
