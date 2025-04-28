@@ -8,13 +8,16 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
 // Import authentication-related routes from the specified file
-import authRoutes from "./routes/auth.routes.js";
+import authRoutes from './routes/auth.route.js';
+
 
 // Import a custom function to connect to the MongoDB database
 import connectMongoDB from "./db/connectMongoDB.js";
 
-import userRoutes from "./routes/user.routes.js"
+import userRoutes from "./routes/user.route.js"
 // Load environment variables from the .env file into process.env
+
+import postRoutes from "./routes/post.route.js"
 
 import {v2 as cloudinary} from "cloudinary";
 
@@ -44,6 +47,7 @@ app.use(cookieParser());
 // Register the authentication routes under the path "/api/auth"
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 
 // Start the Express server and listen on the specified port
 app.listen(PORT, () => {

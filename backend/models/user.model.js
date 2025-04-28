@@ -63,14 +63,13 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			default: "",
 		},
-		// Liked posts: array of ObjectIds referencing posts (Post model)
-		// likedPosts: [
-		// 	{
-		// 		type: mongoose.Schema.Types.ObjectId,
-		// 		ref: "Post",
-		// 		default: [],
-		// 	},
-		// ],
+		likedPosts: [
+			{
+				type: mongoose.Schema.Types.ObjectId,
+				ref: "Post",
+				default: [],
+			},
+		],
 	},
 	// Schema options: adds `createdAt` and `updatedAt` timestamps automatically
 	{ timestamps: true }

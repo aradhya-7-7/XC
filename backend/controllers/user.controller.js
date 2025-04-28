@@ -1,4 +1,4 @@
-import Notification from "../middleware/notification.model.js";
+import Notification from "../models/notification.model.js";
 import User from "../models/user.model.js";
 
 import bcrypt from "bcryptjs";
